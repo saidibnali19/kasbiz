@@ -1,0 +1,442 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+    list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Custom properties */
+:root {
+    --clr-primary: 0 0% 90%;
+    --clr-secondary: 0 0% 10%;
+    --clr-accent: 155 100% 37%;
+    --clr-light: 0 0% 75%;
+
+    /* @link https://utopia.fyi/type/calculator?c=320,14,1.333,1240,16,1.333,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+    --step--2: clamp(0.4925rem, 0.4682rem + 0.1217vw, 0.5625rem);
+    --step--1: clamp(0.6563rem, 0.6236rem + 0.163vw, 0.75rem);
+    --step-0: clamp(0.875rem, 0.8315rem + 0.2174vw, 1rem);
+    --step-1: clamp(1.1663rem, 1.1082rem + 0.2902vw, 1.3331rem);
+    --step-2: clamp(1.555rem, 1.4778rem + 0.3859vw, 1.7769rem);
+    --step-3: clamp(2.0725rem, 1.9695rem + 0.5152vw, 2.3688rem);
+    --step-4: clamp(2.7625rem, 2.6251rem + 0.687vw, 3.1575rem);
+    --step-5: clamp(3.6825rem, 3.4995rem + 0.9152vw, 4.2088rem);
+
+    /* @link https://utopia.fyi/space/calculator?c=320,14,1.333,1240,16,1.333,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l|m-l&g=s,l,xl,12 */
+    --space-3xs: clamp(0.25rem, 0.25rem + 0vw, 0.25rem);
+    --space-2xs: clamp(0.4375rem, 0.4158rem + 0.1087vw, 0.5rem);
+    --space-xs: clamp(0.6875rem, 0.6658rem + 0.1087vw, 0.75rem);
+    --space-s: clamp(0.875rem, 0.8315rem + 0.2174vw, 1rem);
+    --space-m: clamp(1.3125rem, 1.2473rem + 0.3261vw, 1.5rem);
+    --space-l: clamp(1.75rem, 1.663rem + 0.4348vw, 2rem);
+    --space-xl: clamp(2.625rem, 2.4946rem + 0.6522vw, 3rem);
+    --space-2xl: clamp(3.5rem, 3.3261rem + 0.8696vw, 4rem);
+    --space-3xl: clamp(5.25rem, 4.9891rem + 1.3043vw, 6rem);
+
+    /* One-up pairs */
+    --space-3xs-2xs: clamp(0.25rem, 0.163rem + 0.4348vw, 0.5rem);
+    --space-2xs-xs: clamp(0.4375rem, 0.3288rem + 0.5435vw, 0.75rem);
+    --space-xs-s: clamp(0.6875rem, 0.5788rem + 0.5435vw, 1rem);
+    --space-s-m: clamp(0.875rem, 0.6576rem + 1.087vw, 1.5rem);
+    --space-m-l: clamp(1.3125rem, 1.0734rem + 1.1957vw, 2rem);
+    --space-l-xl: clamp(1.75rem, 1.3152rem + 2.1739vw, 3rem);
+    --space-xl-2xl: clamp(2.625rem, 2.1467rem + 2.3913vw, 4rem);
+    --space-2xl-3xl: clamp(3.5rem, 2.6304rem + 4.3478vw, 6rem);
+
+    /* Custom pairs */
+    --space-s-l: clamp(0.875rem, 0.4837rem + 1.9565vw, 2rem);
+    --space-m-l: clamp(1.3125rem, 1.0734rem + 1.1957vw, 2rem);
+
+    --fs-900: var(--step-5);
+    --fs-800: var(--step-4);
+    --fs-700: var(--step-3);
+    --fs-600: var(--step-2);
+    --fs-500: var(--step-1);
+    --fs-400: var(--step-0);
+    --fs-300: var(--step--1);
+    --fs-200: var(--step--2);
+
+    --ff-heading: serif;
+    --ff-body: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+        sans-serif;
+
+    --primary-header-min-height: 6rem;
+}
+
+/* Typography */
+.bg-primary {
+    background-color: hsl(var(--clr-primary));
+}
+
+.bg-light {
+    background-color: hsl(var(--clr-light));
+}
+
+.bg-accent {
+    background-color: hsl(var(--clr-accent));
+}
+
+.text-primary {
+    color: hsl(var(--clr-primary));
+}
+
+.text-secondary {
+    color: hsl(var(--clr-secondary));
+}
+
+.text-accent {
+    color: hsl(var(--clr-accent));
+}
+
+.fs-900 {
+    font-size: var(--fs-900);
+}
+
+.fs-800 {
+    font-size: var(--fs-800);
+}
+
+.fs-700 {
+    font-size: var(--fs-700);
+}
+
+.fs-600 {
+    font-size: var(--fs-600);
+}
+
+.fs-500 {
+    font-size: var(--fs-500);
+}
+
+.fs-400 {
+    font-size: var(--fs-400);
+    line-height: 1.6667;
+}
+
+.fs-300 {
+    font-size: var(--fs-300);
+}
+
+.ff-heading {
+    font-family: var(--ff-heading);
+}
+
+.ff-body {
+    font-family: var(--ff-body);
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.btn-primary {
+    padding: 0.3em 1em;
+    border-radius: 3px;
+    transition: background-color 350ms ease-in-out;
+}
+
+.btn-primary:is(:hover, :focus-within) {
+    background-color: hsl(var(--clr-accent) / 0.8);
+}
+
+.btn-secondary {
+    padding: 0.3em 1em;
+    border: 2px solid hsl(var(--clr-accent));
+    position: relative;
+    isolation: isolate;
+}
+
+.btn-secondary::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: hsl(var(--clr-accent));
+    z-index: -1;
+    transform: scale(0);
+    transform-origin: bottom right;
+    transition: transform 350ms ease-in-out, color 350ms ease-in-out;
+}
+
+.btn-secondary:is(:hover, :focus-within) {
+    color: hsl(var(--clr-primary));
+}
+
+.btn-secondary:is(:hover, :focus-within)::after {
+    transform: scale(1);
+}
+
+/* Layout */
+.d-block {
+    display: block;
+}
+
+.wrapper {
+    max-width: 60rem;
+    margin-inline: auto;
+    padding-inline: var(--space-m);
+}
+
+.flow > * + * {
+    margin-block-start: var(--flow-space, var(--space-m));
+}
+
+.flex {
+    display: flex;
+    gap: var(--space-m);
+}
+
+.grid {
+    display: grid;
+    gap: var(--space-m);
+}
+
+/* Primary navigation */
+.primary-header {
+    inset: 0 0 auto 0;
+    padding-inline-start: 3.4375rem;
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+    box-shadow: 0 6px 6px 0 hsl(var(--clr-secondary) / .75);
+}
+
+.primary-header > div {
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-inline: 0;
+}
+
+.skip-nav-link {
+    display: block;
+    position: absolute;
+    z-index: 1000;
+    pointer-events: none;
+    left: 0;
+    padding: 0.5em 1em;
+    opacity: 0;
+    translate: 0 -100%;
+    transition: translate 400ms, opacity 400ms;
+}
+
+.skip-nav-link:focus {
+    translate: 0;
+    opacity: 1;
+}
+
+.logo {
+    padding-left: var(--space-m);
+}
+
+@supports (backdrop-filter: blur(1rem)) {
+    .header-menu {
+        background-color: hsl(var(--clr-secondary) / 0.2);
+        backdrop-filter: blur(0.675rem);
+    }
+}
+
+.header-menu a {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.75rem;
+    transition: color 350ms ease-in-out;
+}
+
+@media (width > 45em) {
+    .primary-header {
+        --gap: 3rem;
+        padding-inline: 0;
+        display: flex;
+        gap: var(--gap);
+    }
+
+    .logo {
+        flex-shrink: 0;
+    }
+
+    .header-menu {
+        gap: 3rem;
+        padding: 0 7.6875rem 0 10.3125rem;
+    }
+}
+
+@media (35em < width < 45em) {
+    .header-menu {
+        position: relative;
+        translate: 2.4375rem 0;
+    }
+}
+
+@media (width > 35em) {
+    .header-menu {
+        background-color: hsl(var(--clr-accent) / 0.04);
+        padding-inline: 3rem 2.875rem;
+    }
+
+    .header-menu a {
+        padding-block: 2.5rem;
+    }
+
+    .header-menu a:where(:hover, :focus) {
+        color: hsl(var(--clr-accent));
+        border-bottom: 3px solid hsl(var(--clr-accent) / 0.5);
+    }
+
+    [aria-current="page"] {
+        border-bottom: 3px solid hsl(var(--clr-accent));
+    }
+
+    [aria-current="page"]:is(:hover, :focus) {
+        border-bottom: 3px solid hsl(var(--clr-accent));
+    }
+}
+
+.header-menu-toggler {
+    display: none;
+}
+
+.header-menu {
+    gap: 1rem;
+}
+
+@media (width < 35em) {
+    .primary-header {
+        padding-inline-start: 0;
+        padding-block: var(--space-m);
+    }
+
+    .header-menu-toggler {
+        position: absolute;
+        right: calc(var(--space-m) + .75rem);
+        width: 1.25rem;
+        aspect-ratio: 1;
+        z-index: 2;
+        display: block;
+        border: 0;
+        background-color: transparent;
+    }
+
+    .header-menu {
+        position: fixed;
+        inset: -1rem 0 -1rem 30%;
+        z-index: 1;
+        flex-direction: column;
+        padding: 96px 0 0 1rem;
+        transform: translate(100%);
+        transition: transform 0.35s ease-out;
+    }
+
+    .header-menu[data-visible="true"] {
+        transform: translate(0);
+    }
+
+    .header-menu a {
+        color: hsl(var(--clr-primary));
+    }
+
+    .hamburger {
+        position: relative;
+        display: block;
+    }
+
+    .hamburger,
+    .hamburger::before,
+    .hamburger::after {
+        width: 2rem;
+        height: 3px;
+        background-color: hsl(var(--clr-accent));
+        transition: transform 350ms ease-in-out, opacity 200ms linear;
+    }
+
+    .hamburger::before,
+    .hamburger::after {
+        left: 0;
+        content: "";
+        position: absolute;
+    }
+
+    .hamburger::before {
+        bottom: 6px;
+    }
+
+    .hamburger::after {
+        top: 6px;
+    }
+
+    [aria-expanded="true"] .hamburger {
+        transform: rotate(45deg);
+    }
+
+    [aria-expanded="true"] .hamburger::before {
+        opacity: 0;
+    }
+
+    [aria-expanded="true"] .hamburger::after {
+        transform: rotate(90deg) translate(-6px);
+    }
+}
+
+/* Hero section */
