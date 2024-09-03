@@ -74,10 +74,10 @@ button {
 
 /* Custom properties */
 :root {
-    --clr-primary: 0 0% 100%;/* white */
-    --clr-secondary: 0 2% 11%;/* very dark navy blue */
-    --clr-accent: 87 49% 36%;/* light green */
-    --clr-light: 198 100% 18%;/* very light blue */
+    --clr-primary: 0 0% 100%; /* white */
+    --clr-secondary: 0 2% 11%; /* very dark navy blue */
+    --clr-accent: 87 49% 36%; /* light green */
+    --clr-light: 198 100% 18%; /* very light blue */
 
     /* @link https://utopia.fyi/type/calculator?c=320,14,1.333,1240,16,1.333,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
     --step--2: clamp(0.4925rem, 0.4682rem + 0.1217vw, 0.5625rem);
@@ -215,6 +215,7 @@ button {
     text-transform: uppercase;
 }
 
+/* Button styles */
 .btn-primary {
     padding: 0.3em 1em;
     border-radius: 3px;
@@ -283,7 +284,6 @@ button {
     width: 100%;
     position: fixed;
     z-index: 2;
-    box-shadow: 0 6px 6px 0 hsl(var(--clr-secondary) / .75);
 }
 
 .primary-header > div {
@@ -314,18 +314,12 @@ button {
     padding-left: var(--space-m);
 }
 
-@supports (backdrop-filter: blur(1rem)) {
-    .header-menu {
-        background-color: hsl(var(--clr-secondary) / 0.2);
-        backdrop-filter: blur(0.675rem);
-    }
-}
-
 .header-menu a {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 0.75rem;
     transition: color 350ms ease-in-out;
+    font-weight: var(--fw-bold);
 }
 
 @media (width > 45em) {
@@ -355,7 +349,6 @@ button {
 
 @media (width > 35em) {
     .header-menu {
-        background-color: hsl(var(--clr-accent) / 0.04);
         padding-inline: 3rem 2.875rem;
     }
 
@@ -365,15 +358,14 @@ button {
 
     .header-menu a:where(:hover, :focus) {
         color: hsl(var(--clr-accent));
-        border-bottom: 3px solid hsl(var(--clr-accent) / 0.5);
     }
 
     [aria-current="page"] {
-        border-bottom: 3px solid hsl(var(--clr-accent));
+        color: hsl(var(--clr-accent));
     }
 
     [aria-current="page"]:is(:hover, :focus) {
-        border-bottom: 3px solid hsl(var(--clr-accent));
+        color: hsl(var(--clr-accent));
     }
 }
 
@@ -393,7 +385,7 @@ button {
 
     .header-menu-toggler {
         position: absolute;
-        right: calc(var(--space-m) + .75rem);
+        right: calc(var(--space-m) + 0.75rem);
         width: 1.25rem;
         aspect-ratio: 1;
         z-index: 2;
@@ -407,6 +399,7 @@ button {
         inset: -1rem 0 -1rem 30%;
         z-index: 1;
         flex-direction: column;
+        background-color: hsl(var(--clr-light));
         padding: 96px 0 0 1rem;
         transform: translate(100%);
         transition: transform 0.35s ease-out;
@@ -462,8 +455,14 @@ button {
     }
 }
 
+.change {
+    color: hsl(var(--clr-secondary));
+    background-color: hsl(var(--clr-primary));
+    box-shadow: 0 0 6px 3px hsl(var(--clr-secondary) / 0.5);
+}
+
 /* Hero section */
 /* Remove these */
 main {
-    margin-block-start: 8rem!important;
+    margin-block-start: 8rem !important;
 }

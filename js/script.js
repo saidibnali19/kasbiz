@@ -19,3 +19,24 @@ document.addEventListener("click", e => {
         menuToggler.setAttribute("aria-expanded", false);
     } else return
 })
+
+// For changing navigation styles based on scroll
+const changingNav = document.querySelector("[data-primary-nav]");
+const hero = document.querySelector("[data-hero]")
+
+const fadeInOptions = {
+    rootMargin: "-106px 0px 0px 0px",
+    threshold: 0,
+};
+
+const fadeInObserver = new IntersectionObserver((entries, fadeInObserver) => {
+    entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+            changingNav.classList.add("change")
+        } else {
+            changingNav.classList.remove("change")
+        }
+    });
+}, fadeInOptions);
+
+fadeInObserver.observe(hero);
