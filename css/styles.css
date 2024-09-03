@@ -67,12 +67,17 @@ select {
     }
 }
 
+/* Personal preferences */
+button {
+    color: inherit;
+}
+
 /* Custom properties */
 :root {
-    --clr-primary: 0 0% 90%;
-    --clr-secondary: 0 0% 10%;
-    --clr-accent: 155 100% 37%;
-    --clr-light: 0 0% 75%;
+    --clr-primary: 0 0% 100%;/* white */
+    --clr-secondary: 0 2% 11%;/* very dark navy blue */
+    --clr-accent: 87 49% 36%;/* light green */
+    --clr-light: 198 100% 18%;/* very light blue */
 
     /* @link https://utopia.fyi/type/calculator?c=320,14,1.333,1240,16,1.333,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
     --step--2: clamp(0.4925rem, 0.4682rem + 0.1217vw, 0.5625rem);
@@ -118,10 +123,12 @@ select {
     --fs-300: var(--step--1);
     --fs-200: var(--step--2);
 
-    --ff-heading: serif;
-    --ff-body: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-        sans-serif;
+    --ff-heading: "Lora", serif;
+    --ff-body: "Roboto", sans-serif;
+    --ff-accent: "Poppins", sans-serif;
+
+    --fw-bold: bold;
+    --fw-normal: normal;
 
     --primary-header-min-height: 6rem;
 }
@@ -129,6 +136,10 @@ select {
 /* Typography */
 .bg-primary {
     background-color: hsl(var(--clr-primary));
+}
+
+.bg-secondary {
+    background-color: hsl(var(--clr-secondary));
 }
 
 .bg-light {
@@ -186,6 +197,18 @@ select {
 
 .ff-body {
     font-family: var(--ff-body);
+}
+
+.ff-accent {
+    font-family: var(--ff-accent);
+}
+
+.fw-bold {
+    font-weight: bold;
+}
+
+.fw-normal {
+    font-weight: normal;
 }
 
 .uppercase {
@@ -440,3 +463,7 @@ select {
 }
 
 /* Hero section */
+/* Remove these */
+main {
+    margin-block-start: 8rem!important;
+}
