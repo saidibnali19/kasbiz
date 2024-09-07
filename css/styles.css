@@ -484,15 +484,54 @@ button {
     padding-bottom: var(--space-2xl-3xl);
     isolation: isolate;
 }
+.hero__top-text,
+.hero__title,
+.hero__text,
+.hero__cta {
+    opacity: 0;
+    transform: translateX(-1rem);
+}
 
-.hero p {
+.hero__text {
     max-width: 45ch;
+}
+
+.top-text-appear,
+.title-appear,
+.text-appear,
+.cta-appear {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.top-text-appear {
+    transition: 1500ms opacity 1500ms ease-in, 1500ms transform 1500ms ease-in;
+}
+
+.title-appear {
+    transition: 1700ms opacity 1500ms ease-in, 1700ms transform 1500ms ease-in;
+}
+
+.text-appear {
+    transition: 1900ms opacity 1500ms ease-in, 1900ms transform 1500ms ease-in;
+}
+
+.cta-appear {
+    transition: 2100ms opacity 1500ms ease-in, 2100ms transform 1500ms ease-in;
 }
 
 .hero__image {
     position: absolute;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 1500ms ease-in, transform 1500ms ease-in;
     inset: 0 0 0 auto;
     z-index: 3;
+}
+
+.appear {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 @media (35em < width < 48.75em) {
@@ -505,6 +544,7 @@ button {
 @media (width < 35em) {
     .hero > div {
         margin-top: 5rem;
+        align-items: center;
         grid-template-columns: 1fr;
     }
 
