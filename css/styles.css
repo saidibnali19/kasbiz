@@ -186,7 +186,8 @@ button {
 
 .fs-900,
 .fs-800,
-.fs-700 {
+.fs-700,
+.fs-600 {
     line-height: 1.1;
 }
 
@@ -221,6 +222,10 @@ button {
 
 .uppercase {
     text-transform: uppercase;
+}
+
+.text-center {
+    text-align: center;
 }
 
 /* Button styles */
@@ -477,13 +482,14 @@ button {
 }
 
 .hero > div {
-    min-height: 100svh;
-    min-height: 100vh;
     grid-template-columns: 2fr 1fr;
     place-items: end;
     padding-bottom: var(--space-2xl-3xl);
     isolation: isolate;
+    min-height: 100svh;
+    min-height: 100vh;
 }
+
 .hero__top-text,
 .hero__title,
 .hero__text,
@@ -553,4 +559,75 @@ button {
         object-fit: cover;
         z-index: -1;
     }
+}
+
+/* About section */
+.about {
+    padding-block: var(--space-2xl-3xl);
+}
+
+.about__image {
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (width > 35em) {
+    .about {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Services section */
+.services {
+    padding-block: var(--space-2xl-3xl);
+    background-color: hsl(var(--clr-secondary) / 0.05);
+}
+
+.services > div > div {
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+}
+
+.service {
+    grid-template-columns: 1.5rem 1fr;
+    padding: var(--space-m);
+    border-radius: 0.25rem;
+}
+
+.why-us {
+    background-image: linear-gradient(
+        160deg,
+        hsl(var(--clr-light)) 0%,
+        hsl(var(--clr-secondary)) 100%
+    );
+    padding-block: var(--space-2xl-3xl);
+}
+
+@media (width > 35em) {
+    .why-us > div > div:first-of-type {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.why-us > div > div:first-of-type article {
+    grid-template-columns: 1.5rem 1fr;
+    padding: var(--space-m);
+    background-color: hsl(var(--clr-secondary) / 0.25);
+    border-radius: 0.25rem;
+}
+
+.why-us > div > div:first-of-type article svg {
+    width: 2rem;
+    aspect-ratio: 1;
+}
+
+.why-us img {
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.25rem;
+    overflow: clip;
+}
+
+.why-us > div > div:nth-of-type(2) {
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
