@@ -110,3 +110,21 @@ const fadeInCtaObserver = new IntersectionObserver((entries, fadeInCtaObserver) 
 }, fadeInOptions);
 
 fadeInCtaObserver.observe(fadeInCta);
+
+// For portfolio slider
+const slider = new A11YSlider(document.querySelector(".slider"), {
+    customPaging: function (index, a11ySlider) {
+        return '<button class="slider-pager"></button>';
+    },
+    slidesToShow: 1,
+    arrows: true,
+    dots: true,
+    responsive: {
+        560: {
+            slidesToShow: 2,
+        },
+        720: {
+            slidesToShow: 3,
+        }
+    }
+});

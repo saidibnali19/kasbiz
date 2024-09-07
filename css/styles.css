@@ -631,3 +631,94 @@ button {
     flex-wrap: wrap;
     justify-content: space-between;
 }
+
+/* Portfolio section */
+.portfolio {
+    padding-block: var(--space-2xl-3xl);
+}
+
+.project {
+    position: relative;
+}
+
+.project__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.project > div {
+    position: absolute;
+    place-content: start;
+    inset: 0;
+    grid-row: 2 / -1;
+    align-content: end;
+    padding: var(--space-m);
+    background-color: hsl(var(--clr-secondary) / 0.5);
+}
+
+/* For portfolio slider */
+.slider {
+    display: flex;
+    gap: var(--space-m); /* personal preference */
+}
+
+.slider > * {
+    min-height: 65svh;
+    min-height: 65vh;
+    width: 25%;
+    flex: 0 0 auto;
+    border-radius: 0.5rem;
+    overflow: clip;
+}
+
+.a11y-slider-prev,
+.a11y-slider-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    padding: 0.5rem;
+    background-color: hsl(var(--clr-accent));
+    color: hsl(var(--clr-primary));
+    border-radius: 0.25rem;
+}
+.a11y-slider-prev,
+.a11y-slider-next,
+.slider-pager {
+    transition: background-color 350ms ease-in;
+}
+
+.a11y-slider-prev:where(:hover, :focus-within),
+.a11y-slider-next:where(:hover, :focus-within) {
+    background-color: hsl(var(--clr-secondary) / 0.75);
+}
+
+.a11y-slider-prev {
+    left: 1rem;
+}
+.a11y-slider-next {
+    right: 1rem;
+}
+
+.a11y-slider-dots {
+    margin-top: var(--space-m);
+    display: flex;
+    list-style-type: none;
+    gap: calc(var(--space-m) / 2);
+    justify-content: center;
+}
+
+.slider-pager {
+    width: 2rem;
+    height: 0.5rem;
+    border-radius: 1rem;
+    background-color: hsl(var(--clr-accent) / 0.5);
+}
+
+.slider-pager.active {
+    background-color: hsl(var(--clr-accent));
+}
