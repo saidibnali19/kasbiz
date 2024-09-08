@@ -667,8 +667,8 @@ button {
 }
 
 .slider > * {
-    min-height: 65svh;
-    min-height: 65vh;
+    min-height: 60svh;
+    min-height: 60vh;
     width: 25%;
     flex: 0 0 auto;
     border-radius: 0.5rem;
@@ -814,4 +814,19 @@ button {
 
 .team__consultant div:nth-child(2) {
     padding: var(--space-m);
+}
+
+/* Testimonial seection */
+.testimonial {
+    background-image: url("../images/testimonial-bg.webp");
+    background-size: cover;
+    background-blend-mode: multiply;
+    padding: var(--space-2xl-3xl);
+}
+
+.testimonial__image{
+    width: 3.5rem;
+    aspect-ratio: 1;
+    margin-inline: auto;
+    border-radius: 50%;
 }
