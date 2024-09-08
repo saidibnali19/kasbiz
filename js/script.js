@@ -123,7 +123,7 @@ const slider = new A11YSlider(document.querySelector(".slider"), {
         560: {
             slidesToShow: 2,
         },
-        720: {
+        960: {
             slidesToShow: 3,
         }
     }
