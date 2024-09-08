@@ -789,6 +789,11 @@ button {
     position: relative;
 }
 
+.team__consultant-image {
+    width: 100%;
+    object-fit: cover;
+}
+
 .team__consultant-socials {
     position: absolute;
     inset: auto 0 0 auto;
