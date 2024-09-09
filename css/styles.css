@@ -873,3 +873,57 @@ button {
     width: 1rem;
     aspect-ratio: 1;
 }
+
+/* COntact section */
+.contact {
+    padding-block: var(--space-2xl-3xl);
+    background-image: url("../images/contact.webp");
+    background-size: cover;
+}
+
+.contact__info {
+    align-items: center;
+}
+
+.contact svg {
+    width: 1.5rem;
+}
+
+@media (width > 35em) {
+    .contact > div > div {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+.contact > div > div > div {
+    padding: var(--space-m);
+    border-radius: 0.25rem;
+}
+
+.contact__form {
+    border-radius: 0.25rem;
+    grid-template-columns: 1fr 1fr;
+    padding: var(--space-m);
+}
+
+@media (width<35em) {
+    .contact__form {
+        grid-template-columns: 1fr;
+    }
+}
+
+.contact__form input,
+.contact__form textarea {
+    border-radius: 0.25rem;
+    padding: 0.3em 1em;
+}
+
+.contact__form input {
+    border: none;
+}
+
+@media (width > 35em) {
+    .contact__form textarea,
+    .contact__form button {
+        grid-column: span 2;
+    }
+}
