@@ -353,16 +353,9 @@ button {
     }
 }
 
-@media (35em < width < 45em) {
+@media (width > 45em) {
     .header-menu {
-        position: relative;
-        translate: 2.4375rem 0;
-    }
-}
-
-@media (width > 35em) {
-    .header-menu {
-        padding-inline: 3rem 2.875rem;
+        padding-inline: var(--space-m);
     }
 
     .header-menu a {
@@ -370,14 +363,6 @@ button {
     }
 
     .header-menu a:where(:hover, :focus) {
-        color: hsl(var(--clr-accent));
-    }
-
-    [aria-current="page"] {
-        color: hsl(var(--clr-accent));
-    }
-
-    [aria-current="page"]:is(:hover, :focus) {
         color: hsl(var(--clr-accent));
     }
 }
@@ -390,7 +375,7 @@ button {
     gap: 1rem;
 }
 
-@media (width < 35em) {
+@media (width < 45em) {
     .primary-header {
         padding-inline-start: 0;
         padding-block: var(--space-m);
@@ -549,7 +534,7 @@ button {
 
 @media (width < 35em) {
     .hero > div {
-        margin-top: 5rem;
+        margin-top: 4.9rem;
         align-items: center;
         grid-template-columns: 1fr;
     }
