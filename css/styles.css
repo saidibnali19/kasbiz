@@ -460,7 +460,6 @@ button {
 }
 
 /* Hero section */
-/* Remove these */
 .hero {
     position: relative;
     overflow: clip;
@@ -485,6 +484,10 @@ button {
 
 .hero__text {
     max-width: 45ch;
+}
+
+.hero__cta{
+    width: fit-content;
 }
 
 .top-text-appear,
